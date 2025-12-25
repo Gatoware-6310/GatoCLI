@@ -18,6 +18,18 @@ To clean build artifacts, run:
 ```bash
 make clean
 ```
+## Optional Installation
+To install the CLI system wide (to /usr/local/bin), just run:
+```bash
+sudo make install
+```
+
+After installing, you'll be able to run the program from anywhere.
+
+To uninstall:
+```bash
+sudo make uninstall
+```
 
 ## Usage
 

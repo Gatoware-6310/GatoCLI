@@ -22,6 +22,7 @@ static void print_usage(const char *prog) {
     puts("  --version, -v         Show version information");
     puts("  banner [file]         Print the contents of a banner file (default: banner.txt)");
     puts("  hello [count]         Repeats hello multiple times");
+    puts("  add [num1] [num2]     Adds two integers");
 }
 
 static void print_version(const char *prog) {
@@ -59,6 +60,10 @@ static int parse_positive_int(const char *text) {
     }
 
     return (int)value;
+}
+
+static int add_integers(const int num1, const int num2) {
+    return num1 + num2;
 }
 
 static char *read_file_to_string(const char *path) {
@@ -136,6 +141,18 @@ int main(int argc, char *argv[]) {
 
     if (strcmp(command, "--help") == 0 || strcmp(command, "-h") == 0) {
         print_usage(prog);
+        return 0;
+    }
+
+    if (strcmp(command, "add") == 0) {
+        int result;
+        if (argc >= 4) {
+            result = add_integers(parse_positive_int(argv[2]), parse_positive_int(argv[3]));
+        } else {
+            fprintf(stderr, "Please put at least 2 argments for this option");
+            return 1;
+        }
+        printf("The result of the operation was: %d", result);
         return 0;
     }
 

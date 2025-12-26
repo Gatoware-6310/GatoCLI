@@ -36,12 +36,14 @@ static void greet(const char *name) {
 
 static void repeat_notification(int count) {
     for (int i = 1; i <= count; ++i) {
+        // show each notification with its number so the caller can tell how many happened.
         printf("%d: This is notification #%d\n", i, i);
     }
 }
 
 static void repeat_hello(int count){
     for (int i = 1; i <= count; i++){
+        // just mirror the loop above but stick with a cheerful hello message.
         printf("Hello! This is hello number: #%d\n", i);
     }
 }
@@ -58,6 +60,7 @@ static int parse_positive_int(const char *text) {
         return 0;
     }
 
+    // only give callers plain positive numbers so they don't have to check.
     errno = 0;
     char *endptr = NULL;
     long value = strtol(text, &endptr, 10);
@@ -87,6 +90,7 @@ static char *read_file_to_string(const char *path) {
     }
 
     long size = ftell(file);
+    // size tells us how many bytes we need to read.
     if (size < 0) {
         fprintf(stderr, "error: measuring '%s': %s\n", path, strerror(errno));
         fclose(file);
@@ -116,6 +120,7 @@ static char *read_file_to_string(const char *path) {
     }
 
     buffer[read_bytes] = '\0';
+    // mark the end so the buffer is a proper C string.
     fclose(file);
     return buffer;
 }
@@ -135,6 +140,7 @@ static void print_default_banner(void) {
 }
 
 int main(int argc, char *argv[]) {
+    // drop the banner up front so the CLI always starts with some flair.
     print_default_banner();
 
     const char *prog = argc > 0 ? argv[0] : "cli";

@@ -22,7 +22,7 @@ static void print_usage(const char *prog) {
     puts("  hello [count]                Repeats hello multiple times");
     puts("  add [num1] [num2]            Adds two integers");
     puts("  echo [sentence]              Repeats anything you say");
-    puts("  count [sentence] [character] Counts the occurances of a certain character in a given sentence");
+    puts("  count [sentence] [character] Counts the occurrences of a certain character in a given sentence");
     puts("  test [unspecified]           A testing command for developers");
     puts("  --version, -v                Show version information");
     puts("  --help, -h                   Show this help message");
@@ -57,7 +57,7 @@ char *get_input(int allocatedBytes) {
     return buffer;
 }
 
-static int count_occurances(char string[], char occurance) {
+static int count_occurrences(char string[], char occurrence) {
    
     // this gets the size of the array because sizeof() returns the size of the array in bytes, and it divides that by the size of one element (in bytes)
     // int length = sizeof(string) / sizeof(string[0]);
@@ -68,12 +68,12 @@ static int count_occurances(char string[], char occurance) {
     int count = 0;
 
     for (int i = 0; i < length; i++) {
-        if (string[i] == occurance) {
+        if (string[i] == occurrence) {
             count++;
         }        
     }
 
-    //printf("The length of the string was: %d\nAnd '%c' occured %d times.", length, occurance, count); 
+    //printf("The length of the string was: %d\nAnd '%c' occurred %d times.", length, occurrence, count); 
     return count;
 }
 
@@ -184,7 +184,7 @@ int main(int argc, char *argv[]) {
         if (argc >= 4) {
             result = add_integers(parse_positive_int(argv[2]), parse_positive_int(argv[3]));
         } else {
-            fprintf(stderr, "Please put at least 2 argments for this option\n");
+            fprintf(stderr, "Please put at least 2 arguments for this option\n");
             return 1;
         }
         printf("The result of the operation was: %d\n", result);
@@ -264,8 +264,8 @@ int main(int argc, char *argv[]) {
 
     if (strcmp(command, "count") == 0) {
        // char first_string[] = argv[2];
-       // char occurance_to_check_for = argv[3]; 
-       printf("There are %d occurences of '%c'", count_occurances(argv[2], *argv[3]), *argv[3]); // dereference argv3
+       // char occurrence_to_check_for = argv[3]; 
+       printf("There are %d occurrences of '%c'", count_occurrences(argv[2], *argv[3]), *argv[3]); // dereference argv3
         return 0;
     }
 

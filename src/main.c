@@ -23,7 +23,7 @@ static void print_usage(const char *prog) {
     puts("  banner [file]         Print the contents of a banner file (default: banner.txt)");
     puts("  hello [count]         Repeats hello multiple times");
     puts("  add [num1] [num2]     Adds two integers");
-    puts("  echo [anything]       Repeats anything you say");
+    puts("  echo [sentence]       Repeats anything you say");
     puts("  test [unspecified]    A testing command for developers");
 }
 

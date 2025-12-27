@@ -274,7 +274,6 @@ int main(int argc, char *argv[]) {
 	}
 
 	if (strcmp(command, "coinflip") == 0) {
-		int result = coin_flip();
 		int times = 1;
 
 		if (argc >= 2) {
@@ -286,6 +285,7 @@ int main(int argc, char *argv[]) {
 		}
 
 		for (int i = 0; i < times; i++) {
+			int result = coin_flip();
 			if (result == 0) {
 				puts("Heads!");
 			} else {
@@ -303,7 +303,7 @@ int main(int argc, char *argv[]) {
 			   *argv[3]); // dereference argv3
 		return 0;
 	}
-	
+
 	if (strcmp(command, "test") == 0) {
 		printf("testing\n");
 		return 0;

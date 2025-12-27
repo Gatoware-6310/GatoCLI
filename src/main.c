@@ -267,6 +267,7 @@ int main(int argc, char *argv[]) {
   }
 
   if (strcmp(command, "coinflip") == 0) {
+      
     int result = coin_flip();
     int times = 1;
 

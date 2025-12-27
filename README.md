@@ -50,7 +50,9 @@ Most commands share a simple convention: the first argument is the command name 
 | `hello <count>` | Prints “Hello!” with a running number. | Requires a positive integer count. |
 | `add <num1> <num2>` | Adds two integers and prints the sum. | Requires two positive integers. |
 | `echo [sentence]` | Repeats the provided words verbatim. | Needs at least one word to repeat. |
-| `test` | Runs a simple developer test message. | |
+| `test` | Runs a simple developer test. | |
+| `count [sentence] [character]` | Counts the occurences of a given character in a sentence | |
+| `coinflip [times]` | Flips a coin one or more times.|Defaults to 1 time when no 'times' is supplied. |
 | `banner [file]` | Dumps the contents of a banner file. | Defaults to `banner.txt` in the current directory. |
 | `--help`, `-h` | Show the usage summary. | |
 | `--version`, `-v` | Print the program version (`0.631.0`). | |
@@ -76,4 +78,3 @@ If you invoke a command without the required arguments, the program explains wha
 
 
 <small><sub>6310</sub></small>
-
